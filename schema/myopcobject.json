@@ -21,11 +21,7 @@
 					"items": {
 						"type": "object",
 						"properties":{
-							"Value": { "$ref": "#/definitions/x.opc.struct-data" },
-							"ValueSchema": {
-								"type": "object",
-								"description": "A JSON Schema representing the Value property"
-							}
+							"Value": { "$ref": "#/definitions/x.opc.struct-data" }
 						},
 						"required": ["Value"]
 					},
@@ -42,13 +38,23 @@
 			"additionalProperties": false
         },
         "x.opc.struct-data": {
-            "type": "object",
-            "properties": {
-                "data-property-name": { "type": "string" },
-                "data-property-value": { "$ref": "#/definitions/x.opc.property-value" }
-            },
-            "required": ["data-property-name", "data-property-value"],
-            "additionalProperties": false
+			"type": "object",
+			"properties": {
+				"properties": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"data-property-name": { "type": "string" },
+							"data-property-value": { "$ref": "#/definitions/x.opc.property-value" }
+						},
+						"required": ["data-property-name", "data-property-value"],
+						"additionalProperties": false
+					}
+				}
+			},
+			"required": ["properties"],
+			"additionalProperties": false
         },
         "x.opc.property-value": {
 			"oneOf": [
@@ -70,5 +76,4 @@
 		{"$ref": "oic.core.json#/definitions/oic.core"},
 		{"$ref": "#/definitions/x.opc.object"}	
 	]
-	// "required": ["id", "n", "rt", "if"]
 }
