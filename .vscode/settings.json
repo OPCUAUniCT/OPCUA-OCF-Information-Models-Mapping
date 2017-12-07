@@ -1,0 +1,10 @@
+{
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "esempio.json"
+            ],
+            "url": "/schema/myopcobject.json"
+        }
+    ]
+}

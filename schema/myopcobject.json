@@ -1,0 +1,74 @@
+{
+	"id":"http://www.unictschema.it/opcobject.json",
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"description": "The JSON Schema defined for OPC UA Nodes of ObjectType or FolderType",
+	"title": "OPC UA Object or Folder Node Representation",
+	"definitions": {
+		"x.opc.object":{
+			"type": "object",
+			"properties": {
+				"OPCNodeType": {
+					"type": "string",
+					"enum": ["folder","object"],
+					"description": "This property indicates if the OPC UA Node represented belongs to the OPC UA FolderType or to the OPC UA ObjectType"
+				},
+				"OPCdescription":{
+					"type": "string",
+					"description": "This property correspond to the OPC UA Description attribute of the OPC UA Node represented"
+				},
+				"OPCproperties": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties":{
+							"Value": { "$ref": "#/definitions/x.opc.struct-data" },
+							"ValueSchema": {
+								"type": "object",
+								"description": "A JSON Schema representing the Value property"
+							}
+						},
+						"required": ["Value"]
+					},
+					"description": "A list of OPC UA Property in a JSON format"
+				},
+				"links": {
+					"type": "array",
+					"items": {
+						"$ref": "oic.oic-link-schema.json#"},
+					"description": "A list of OCF Links that maps the OPC UA HasComponent References"
+				}
+			},
+			"required": ["OPCNodeType"],
+			"additionalProperties": false
+        },
+        "x.opc.struct-data": {
+            "type": "object",
+            "properties": {
+                "data-property-name": { "type": "string" },
+                "data-property-value": { "$ref": "#/definitions/x.opc.property-value" }
+            },
+            "required": ["data-property-name", "data-property-value"],
+            "additionalProperties": false
+        },
+        "x.opc.property-value": {
+			"oneOf": [
+				{ "$ref": "#/definitions/x.opc.struct-data" },
+                { "type": "string" },
+				{ "type": "number" },
+                { "type": "boolean" },
+                { 
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/x.opc.property-value"
+                    }
+                }
+            ]
+        }
+	},
+	"type": "object",
+	"allOf": [
+		{"$ref": "oic.core.json#/definitions/oic.core"},
+		{"$ref": "#/definitions/x.opc.object"}	
+	]
+	// "required": ["id", "n", "rt", "if"]
+}

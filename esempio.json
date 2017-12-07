@@ -1,0 +1,13 @@
+{
+    "OPCNodeType": "object",
+     "OPCproperties": [
+         {
+             "Value": {
+                 "data-property-name": "BAConfigurations",
+                 "data-property-value": {
+                     
+                 }
+             }
+         }
+     ]
+}
