@@ -22,12 +22,7 @@
 						"type": "object",
 						"properties": {
 							"OPCproperty-name": { "type": "string", "minLength": 3 },
-							"OPCproperty-value": { 
-								"anyOf": [
-									{ "$ref": "#/definitions/x.opc.struct-data" },
-									{ "$ref": "#/definitions/x.opc.property-value" }
-								]
-							}
+							"OPCproperty-value": { "$ref": "#/definitions/x.opc.property-value" }
 						},
 						"required": ["OPCproperty-name", "OPCproperty-value"]
 					},
