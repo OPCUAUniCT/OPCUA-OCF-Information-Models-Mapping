@@ -18,13 +18,20 @@
 				},
 				"OPCproperties": {
 					"type": "array",
-					"items": {
+					"items": { 
 						"type": "object",
-						"properties":{
-							"Value": { "$ref": "#/definitions/x.opc.struct-data" }
+						"properties": {
+							"OPCproperty-name": { "type": "string", "minLength": 3 },
+							"OPCproperty-value": { 
+								"anyOf": [
+									{ "$ref": "#/definitions/x.opc.struct-data" },
+									{ "$ref": "#/definitions/x.opc.property-value" }
+								]
+							}
 						},
-						"required": ["Value"]
+						"required": ["OPCproperty-name", "OPCproperty-value"]
 					},
+					"minItems": 1,
 					"description": "A list of OPC UA Property in a JSON format"
 				},
 				"links": {
@@ -50,7 +57,8 @@
 						},
 						"required": ["data-property-name", "data-property-value"],
 						"additionalProperties": false
-					}
+					},
+					"minItems": 1
 				}
 			},
 			"required": ["properties"],
@@ -59,8 +67,8 @@
         "x.opc.property-value": {
 			"oneOf": [
 				{ "$ref": "#/definitions/x.opc.struct-data" },
-                { "type": "string" },
 				{ "type": "number" },
+                { "type": "string" },
                 { "type": "boolean" },
                 { 
                     "type": "array",

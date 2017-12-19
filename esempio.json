@@ -2,99 +2,63 @@
     "OPCNodeType": "object",
     "OPCproperties": [
         {
-            "Value": {
+            "OPCproperty-name": "BAConfigurations",
+            "OPCproperty-value": {
                 "properties": [
                     {
-                        "data-property-name": "BAConfigurations",
+                        "data-property-name": "AirConditionerControllers",
+                        "data-property-value": [
+                            {
+                                "properties": [
+                                    {
+                                        "data-property-name": "DeviceAddress",
+                                        "data-property-value": 0
+                                    },
+                                    {
+                                        "data-property-name": "HumiditySetpoint",
+                                        "data-property-value": 60
+                                    },
+                                    {
+                                        "data-property-name": "Name",
+                                        "data-property-value": "AirConditioner_1"
+                                    },
+                                    {
+                                        "data-property-name": "TemperatureSetpoint",
+                                        "data-property-value": 72
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "data-property-name": "FurnaceControllers",
                         "data-property-value": {
                             "properties": [
                                 {
-                                    "data-property-name": "AirConditionerControllers",
-                                    "data-property-value": [
-                                        {
-                                            "properties": [
-                                                {
-                                                    "data-property-name": "DeviceAddress",
-                                                    "data-property-value": 0
-                                                },
-                                                {
-                                                    "data-property-name": "HumiditySetpoint",
-                                                    "data-property-value": 60
-                                                },
-                                                {
-                                                    "data-property-name": "Name",
-                                                    "data-property-value": "AirConditioner_1"
-                                                },
-                                                {
-                                                    "data-property-name": "TemperatureSetpoint",
-                                                    "data-property-value": 72
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "properties": [
-                                                {
-                                                    "data-property-name": "DeviceAddress",
-                                                    "data-property-value": 1
-                                                },
-                                                {
-                                                    "data-property-name": "HumiditySetpoint",
-                                                    "data-property-value": 60
-                                                },
-                                                {
-                                                    "data-property-name": "Name",
-                                                    "data-property-value": "AirConditioner_1"
-                                                },
-                                                {
-                                                    "data-property-name": "TemperatureSetpoint",
-                                                    "data-property-value": 72
-                                                }
-                                            ]
-                                        }
-                                    ]
+                                    "data-property-name": "DeviceAddress",
+                                    "data-property-value": 0
                                 },
                                 {
-                                    "data-property-name": "FurnaceControllers",
-                                    "data-property-value": [
-                                        {
-                                            "properties": [
-                                                {
-                                                    "data-property-name": "DeviceAddress",
-                                                    "data-property-value": 0
-                                                },
-                                                {
-                                                    "data-property-name": "Name",
-                                                    "data-property-value": "Furnace_1"
-                                                },
-                                                {
-                                                    "data-property-name": "TemperatureSetpoint",
-                                                    "data-property-value": 72
-                                                }
-                                            ]
-                                        },
-                                        {
-                                            "properties": [
-                                                {
-                                                    "data-property-name": "DeviceAddress",
-                                                    "data-property-value": 1
-                                                },
-                                                {
-                                                    "data-property-name": "Name",
-                                                    "data-property-value": "Furnace_2"
-                                                },
-                                                {
-                                                    "data-property-name": "TemperatureSetpoint",
-                                                    "data-property-value": 72
-                                                }
-                                            ]
-                                        }
-                                    ]
+                                    "data-property-name": "Name",
+                                    "data-property-value": "Furnace_1"
+                                },
+                                {
+                                    "data-property-name": "TemperatureSetpoint",
+                                    "data-property-value": 72
                                 }
                             ]
                         }
+                    },
+                    {
+                        "data-property-name": "NoOfAirConditionerControllers",
+                        "data-property-value": 10
+                    },
+                    {
+                        "data-property-name": "NoOfFurnaceControllers",
+                        "data-property-value": 10
                     }
                 ]
-            }
+            }       
         }
     ]
 }
