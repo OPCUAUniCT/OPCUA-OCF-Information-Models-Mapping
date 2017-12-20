@@ -24,7 +24,12 @@
 								"type": "object",
 								"properties": {
 									"opc-property-name": { "type": "string" },
-									"opc-property-number-value": { "type": "number" } 
+									"opc-property-number-value": { "type": "number" },
+									"enum-strings": {
+										"type": "array",
+										"items": {	"type": "string" },
+										"minItems": 1
+									} 
 								},
 								"required": ["opc-property-name", "opc-property-number-value"]
 							},
@@ -48,9 +53,19 @@
 								"type": "object",
 								"properties": {
 									"opc-property-name": { "type": "string" },
-									"opc-property-array-value": { "$ref": "#/definitions/x.opc.array-value" } 
+									"opc-property-array-value": { "$ref": "#/definitions/x.opc.array-value" } ,
+									"num-dimensions": { "type": "integer" },
+									"innermost-type": {
+										"type": "string",
+										"enum": ["number", "string", "boolean", "object"]
+									},
+									"enum-strings": {
+										"type": "array",
+										"items": {	"type": "string" },
+										"minItems": 1
+									} 
 								},
-								"required": ["opc-property-name", "opc-property-array-value"]
+								"required": ["opc-property-name", "opc-property-array-value", "num-dimensions", "innermost-type"]
 							},
 							{
 								"type": "object",
@@ -104,7 +119,12 @@
 			"type": "object",
 			"properties": {
 				"field-name": { "type": "string" },
-				"field-number-value": { "type": "number" }
+				"field-number-value": { "type": "number" },
+				"enum-strings": {
+					"type": "array",
+					"items": {	"type": "string" },
+					"minItems": 1
+				} 
 			},
 			"required": ["field-name", "field-number-value"]
 		},
@@ -128,9 +148,19 @@
 			"type": "object",
 			"properties": {
 				"field-name": { "type": "string" },
-				"field-array-value": { "$ref": "#/definitions/x.opc.array-value" }
+				"field-array-value": { "$ref": "#/definitions/x.opc.array-value" },
+				"num-dimensions": { "type": "integer" },
+				"innermost-type": {
+					"type": "string",
+					"enum": ["number", "string", "boolean", "object"]
+				},
+				"enum-strings": {
+					"type": "array",
+					"items": {	"type": "string" },
+					"minItems": 1
+				} 
 			},
-			"required": ["field-name", "field-array-value"]
+			"required": ["field-name", "field-array-value", "num-dimensions", "innermost-type"]
 		}, 
 		"x.opc.struct-field": {
 			"type": "object",

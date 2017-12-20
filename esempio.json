@@ -28,7 +28,9 @@
                                     }
                                 ]
                             }   
-                        ]
+                        ],
+                        "num-dimensions": 1,
+                        "innermost-type": "object"
                     },
                     {
                         "field-name": "FurnaceControllers",
@@ -49,7 +51,9 @@
                                     }
                                 ]
                             }
-                        ]
+                        ],
+                        "num-dimensions": 1,
+                        "innermost-type": "object"
                     },
                     {
                         "field-name": "NoOfAirConditionerControllers",
