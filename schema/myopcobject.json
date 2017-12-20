@@ -19,60 +19,127 @@
 				"OPCproperties": {
 					"type": "array",
 					"items": { 
-						"type": "object",
-						"properties": {
-							"OPCproperty-name": { "type": "string", "minLength": 3 },
-							"OPCproperty-value": { "$ref": "#/definitions/x.opc.property-value" }
-						},
-						"required": ["OPCproperty-name", "OPCproperty-value"]
+						"oneOf": [
+							{
+								"type": "object",
+								"properties": {
+									"opc-property-name": { "type": "string" },
+									"opc-property-number-value": { "type": "number" } 
+								},
+								"required": ["opc-property-name", "opc-property-number-value"]
+							},
+							{
+								"type": "object",
+								"properties": {
+									"opc-property-name": { "type": "string" },
+									"opc-property-string-value": { "type": "string" } 
+								},
+								"required": ["opc-property-name", "opc-property-string-value"]
+							},
+							{
+								"type": "object",
+								"properties": {
+									"opc-property-name": { "type": "string" },
+									"opc-property-bool-value": { "type": "boolean" } 
+								},
+								"required": ["opc-property-name", "opc-property-bool-value"]
+							},
+							{
+								"type": "object",
+								"properties": {
+									"opc-property-name": { "type": "string" },
+									"opc-property-array-value": { "$ref": "#/definitions/x.opc.array-value" } 
+								},
+								"required": ["opc-property-name", "opc-property-array-value"]
+							},
+							{
+								"type": "object",
+								"properties": {
+									"opc-property-name": { "type": "string" },
+									"opc-property-struct-value": { "$ref": "#/definitions/x.opc.struct-value" } 
+								},
+								"required": ["opc-property-name", "opc-property-struct-value"]
+							}
+						]
 					},
 					"minItems": 1,
 					"description": "A list of OPC UA Property in a JSON format"
-				},
-				"links": {
-					"type": "array",
-					"items": {
-						"$ref": "oic.oic-link-schema.json#"},
-					"description": "A list of OCF Links that maps the OPC UA HasComponent References"
 				}
 			},
 			"required": ["OPCNodeType"],
 			"additionalProperties": false
-        },
-        "x.opc.struct-data": {
+		},
+		"x.opc.array-value": {
+			"type": "array",
+			"items": {
+				"oneOf":[
+					{ "type": "number" },
+					{ "type": "string" },
+					{ "type": "boolean" },
+					{ "$ref": "#/definitions/x.opc.array-value" },
+					{ "$ref": "#/definitions/x.opc.struct-value" }
+				]
+			}
+		},
+		"x.opc.struct-value": {
 			"type": "object",
 			"properties": {
-				"properties": {
+				"fields": {
 					"type": "array",
 					"items": {
-						"type": "object",
-						"properties": {
-							"data-property-name": { "type": "string" },
-							"data-property-value": { "$ref": "#/definitions/x.opc.property-value" }
-						},
-						"required": ["data-property-name", "data-property-value"],
-						"additionalProperties": false
+						"anyOf": [
+							{ "$ref": "#/definitions/x.opc.number-field" },
+							{ "$ref": "#/definitions/x.opc.string-field" },
+							{ "$ref": "#/definitions/x.opc.bool-field" },
+							{ "$ref": "#/definitions/x.opc.array-field" },
+							{ "$ref": "#/definitions/x.opc.struct-field" }
+						]
 					},
 					"minItems": 1
 				}
 			},
-			"required": ["properties"],
-			"additionalProperties": false
-        },
-        "x.opc.property-value": {
-			"oneOf": [
-				{ "$ref": "#/definitions/x.opc.struct-data" },
-				{ "type": "number" },
-                { "type": "string" },
-                { "type": "boolean" },
-                { 
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/x.opc.property-value"
-                    }
-                }
-            ]
-        }
+			"required": ["fields"]
+		},
+		"x.opc.number-field": {
+			"type": "object",
+			"properties": {
+				"field-name": { "type": "string" },
+				"field-number-value": { "type": "number" }
+			},
+			"required": ["field-name", "field-number-value"]
+		},
+		"x.opc.string-field": {
+			"type": "object",
+			"properties": {
+				"field-name": { "type": "string" },
+				"field-string-value": { "type": "string" }
+			},
+			"required": ["field-name", "field-string-value"]
+		}, 
+		"x.opc.bool-field": {
+			"type": "object",
+			"properties": {
+				"field-name": { "type": "string" },
+				"field-bool-value": { "type": "boolean" }
+			},
+			"required": ["field-name", "field-bool-value"]
+		}, 
+		"x.opc.array-field": {
+			"type": "object",
+			"properties": {
+				"field-name": { "type": "string" },
+				"field-array-value": { "$ref": "#/definitions/x.opc.array-value" }
+			},
+			"required": ["field-name", "field-array-value"]
+		}, 
+		"x.opc.struct-field": {
+			"type": "object",
+			"properties": {
+				"field-name": { "type": "string" },
+				"field-struct-value": { "$ref": "#/definitions/x.opc.struct-value" }
+			},
+			"required": ["field-name", "field-struct-value"]
+		} 
 	},
 	"type": "object",
 	"allOf": [

@@ -2,63 +2,65 @@
     "OPCNodeType": "object",
     "OPCproperties": [
         {
-            "OPCproperty-name": "BAConfigurations",
-            "OPCproperty-value": {
-                "properties": [
+            "opc-property-name": "BAConfigurations",
+            "opc-property-struct-value": {
+                "fields": [
                     {
-                        "data-property-name": "AirConditionerControllers",
-                        "data-property-value": [
+                        "field-name": "AirConditionerControllers",
+                        "field-array-value": [
                             {
-                                "properties": [
+                                "fields": [
                                     {
-                                        "data-property-name": "DeviceAddress",
-                                        "data-property-value": 0
+                                        "field-name": "DeviceAddress",
+                                        "field-number-value": 0
                                     },
                                     {
-                                        "data-property-name": "HumiditySetpoint",
-                                        "data-property-value": 60
+                                        "field-name": "HumiditySetpoint",
+                                        "field-number-value": 60
                                     },
                                     {
-                                        "data-property-name": "Name",
-                                        "data-property-value": "AirConditioner_1"
+                                        "field-name": "Name",
+                                        "field-string-value": "AirConditioner_1"
                                     },
                                     {
-                                        "data-property-name": "TemperatureSetpoint",
-                                        "data-property-value": 72
+                                        "field-name": "TemperatureSetpoint",
+                                        "field-number-value": 72
+                                    }
+                                ]
+                            }   
+                        ]
+                    },
+                    {
+                        "field-name": "FurnaceControllers",
+                        "field-array-value": [
+                            {
+                                "fields": [
+                                    {
+                                        "field-name": "DeviceAddress",
+                                        "field-number-value": 0
+                                    },
+                                    {
+                                        "field-name": "Name",
+                                        "field-string-value": "AirConditioner_1"
+                                    },
+                                    {
+                                        "field-name": "TemperatureSetpoint",
+                                        "field-number-value": 72
                                     }
                                 ]
                             }
                         ]
                     },
                     {
-                        "data-property-name": "FurnaceControllers",
-                        "data-property-value": {
-                            "properties": [
-                                {
-                                    "data-property-name": "DeviceAddress",
-                                    "data-property-value": 0
-                                },
-                                {
-                                    "data-property-name": "Name",
-                                    "data-property-value": "Furnace_1"
-                                },
-                                {
-                                    "data-property-name": "TemperatureSetpoint",
-                                    "data-property-value": 72
-                                }
-                            ]
-                        }
+                        "field-name": "NoOfAirConditionerControllers",
+                        "field-number-value": 10
                     },
                     {
-                        "data-property-name": "NoOfAirConditionerControllers",
-                        "data-property-value": 10
-                    },
-                    {
-                        "data-property-name": "NoOfFurnaceControllers",
-                        "data-property-value": 10
+                        "field-name": "NoOfFurnaceControllers",
+                        "field-number-value": 10
                     }
                 ]
-            }       
+            } 
         }
     ]
 }
