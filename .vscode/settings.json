@@ -2,7 +2,7 @@
     "json.schemas": [
         {
             "fileMatch": [
-                "esempio.json"
+                "esempio*.json"
             ],
             "url": "/schema/myopcobject.json"
         }

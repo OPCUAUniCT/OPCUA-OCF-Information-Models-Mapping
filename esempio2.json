@@ -1,0 +1,9 @@
+{
+    "OPCNodeType": "object",
+    "OPCproperties": [
+        {
+            "OPCproperty-name": "BoilerConfig",
+            "OPCproperty-value": []
+        }
+    ]
+}

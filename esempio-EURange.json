@@ -1,0 +1,20 @@
+{
+    "OPCNodeType": "object",
+    "OPCproperties": [
+        {
+            "OPCproperty-name": "EURange",
+            "OPCproperty-value": {
+                "properties": [
+                    {
+                        "data-property-name": "Low",
+                        "data-property-value": 0
+                    },
+                    {
+                        "data-property-name": "High",
+                        "data-property-value": 100
+                    }
+                ]
+            }
+        }
+    ]
+}
