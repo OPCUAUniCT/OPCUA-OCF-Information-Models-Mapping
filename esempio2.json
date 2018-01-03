@@ -1,9 +1,11 @@
 {
+    "rt": ["x.opc.object"],
     "OPCNodeType": "object",
+    "OPCdescription": "An object representing a Temperature Sensor",
     "OPCproperties": [
         {
-            "OPCproperty-name": "BoilerConfig",
-            "OPCproperty-value": []
+            "opc-property-name": "EUnit",
+            "opc-property-string-value": "C"
         }
     ]
 }
