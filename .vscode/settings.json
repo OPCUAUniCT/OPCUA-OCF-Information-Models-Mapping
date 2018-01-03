@@ -4,7 +4,7 @@
             "fileMatch": [
                 "esempio*.json"
             ],
-            "url": "/schema/myopcobject.json"
+            "url": "/schema/opc.object-schema.json"
         }
     ]
 }

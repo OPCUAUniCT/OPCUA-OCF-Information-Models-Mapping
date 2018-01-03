@@ -1,8 +1,8 @@
 {
     "rt": ["x.opc.object"],
     "OPCNodeType": "object",
-    "OPCdescription": "An object representing a Temperature Sensor",
-    "OPCproperties": [
+    "OPCDescription": "An object representing a Temperature Sensor",
+    "OPCProperties": [
         {
             "opc-property-name": "EUnit",
             "opc-property-string-value": "C"
