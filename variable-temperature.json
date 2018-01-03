@@ -1,0 +1,26 @@
+{
+    "OPCValue": {
+        "fields": [
+            {
+                "field-name": "min",
+                "field-number-value": -3
+            },
+            {
+                "field-name": "max",
+                "field-number-value": 28
+            },
+            {
+                "field-name": "status",
+                "field-number-value": 0,
+                "enum-strings": ["Cold", "Warm", "Hot"]
+            }
+        ]
+    },
+    "value-type": "object",
+    "OPCProperties": [
+        {
+            "opc-property-name": "EUnit",
+            "opc-property-string-value": "C"
+        }
+    ]
+}
