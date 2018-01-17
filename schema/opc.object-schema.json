@@ -1,5 +1,5 @@
 {
-	"id":"http://www.unictschema.it/opcobject.json",
+	"id":"http://www.unictschema.it/opc.object-schema.json",
 	"$schema": "http://json-schema.org/draft-04/schema#",
 	"description": "The JSON Schema defined for OPC UA Nodes of ObjectType or FolderType",
 	"title": "OPC UA Object or Folder Node Representation",

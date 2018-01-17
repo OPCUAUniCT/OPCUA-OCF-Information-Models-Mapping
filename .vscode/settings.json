@@ -11,6 +11,12 @@
                 "variable*.json"
             ],
             "url": "/schema/opc.variable-schema.json"
+        },
+        {
+            "fileMatch": [
+                "method*.json"
+            ],
+            "url": "/schema/opc.method-schema.json"
         }
     ]
 }
