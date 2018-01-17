@@ -5,6 +5,12 @@
                 "esempio*.json"
             ],
             "url": "/schema/opc.object-schema.json"
+        },
+        {
+            "fileMatch": [
+                "variable*.json"
+            ],
+            "url": "/schema/opc.variable-schema.json"
         }
     ]
 }

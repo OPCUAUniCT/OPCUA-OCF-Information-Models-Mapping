@@ -1,0 +1,195 @@
+{
+	"id":"http://www.unictschema.it/opcobject.json",
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"description": "The JSON Schema defined for OPC UA Nodes of ObjectType or FolderType",
+	"title": "OPC UA Object or Folder Node Representation",
+	"definitions": {
+		"x.opc.variable":{
+			"type": "object",
+			"properties": {
+				"OPCValue": {
+					"oneOf": [
+                        { "$ref": "#/definitions/x.opc.struct-value" },
+                        { "type": "string" },
+                        { "type": "number" },
+                        { "$ref": "#/definitions/x.opc.array-value" }
+                    ]
+                },
+                "value-type": {
+                    "type": "string",
+                    "enum": ["string", "number", "array", "object"]
+                },
+                "enum-strings": {
+                    "type": "array",
+                    "items": {	"type": "string" },
+                    "minItems": 1
+                },
+                "num-dimensions": { "type": "integer" },
+                "innermost-type": {
+                    "type": "string",
+                    "enum": ["number", "string", "boolean", "object"]
+                },
+				"OPCDescription": {
+					"type": "string",
+					"description": "This property correspond to the OPC UA Description attribute of the OPC UA Node represented"
+				},
+				"OPCProperties": {
+					"type": "array",
+					"items": { 
+						"oneOf": [
+							{
+								"type": "object",
+								"properties": {
+									"opc-property-name": { "type": "string" },
+									"opc-property-number-value": { "type": "number" },
+									"enum-strings": {
+										"type": "array",
+										"items": {	"type": "string" },
+										"minItems": 1
+									} 
+								},
+								"required": ["opc-property-name", "opc-property-number-value"]
+							},
+							{
+								"type": "object",
+								"properties": {
+									"opc-property-name": { "type": "string" },
+									"opc-property-string-value": { "type": "string" } 
+								},
+								"required": ["opc-property-name", "opc-property-string-value"]
+							},
+							{
+								"type": "object",
+								"properties": {
+									"opc-property-name": { "type": "string" },
+									"opc-property-bool-value": { "type": "boolean" } 
+								},
+								"required": ["opc-property-name", "opc-property-bool-value"]
+							},
+							{
+								"type": "object",
+								"properties": {
+									"opc-property-name": { "type": "string" },
+									"opc-property-array-value": { "$ref": "#/definitions/x.opc.array-value" } ,
+									"num-dimensions": { "type": "integer" },
+									"innermost-type": {
+										"type": "string",
+										"enum": ["number", "string", "boolean", "object"]
+									},
+									"enum-strings": {
+										"type": "array",
+										"items": {	"type": "string" },
+										"minItems": 1
+									} 
+								},
+								"required": ["opc-property-name", "opc-property-array-value", "num-dimensions", "innermost-type"]
+							},
+							{
+								"type": "object",
+								"properties": {
+									"opc-property-name": { "type": "string" },
+									"opc-property-struct-value": { "$ref": "#/definitions/x.opc.struct-value" } 
+								},
+								"required": ["opc-property-name", "opc-property-struct-value"]
+							}
+						]
+					},
+					"minItems": 1,
+					"description": "A list of OPC UA Property in a JSON format"
+				}
+			},
+			"required": ["OPCValue", "value-type"]
+		},
+		"x.opc.array-value": {
+			"type": "array",
+			"items": {
+				"oneOf":[
+					{ "type": "number" },
+					{ "type": "string" },
+					{ "type": "boolean" },
+					{ "$ref": "#/definitions/x.opc.array-value" },
+					{ "$ref": "#/definitions/x.opc.struct-value" }
+				]
+			}
+		},
+		"x.opc.struct-value": {
+			"type": "object",
+			"properties": {
+				"fields": {
+					"type": "array",
+					"items": {
+						"anyOf": [
+							{ "$ref": "#/definitions/x.opc.number-field" },
+							{ "$ref": "#/definitions/x.opc.string-field" },
+							{ "$ref": "#/definitions/x.opc.bool-field" },
+							{ "$ref": "#/definitions/x.opc.array-field" },
+							{ "$ref": "#/definitions/x.opc.struct-field" }
+						]
+					},
+					"minItems": 1
+				}
+			},
+			"required": ["fields"]
+		},
+		"x.opc.number-field": {
+			"type": "object",
+			"properties": {
+				"field-name": { "type": "string" },
+				"field-number-value": { "type": "number" },
+				"enum-strings": {
+					"type": "array",
+					"items": {	"type": "string" },
+					"minItems": 1
+				} 
+			},
+			"required": ["field-name", "field-number-value"]
+		},
+		"x.opc.string-field": {
+			"type": "object",
+			"properties": {
+				"field-name": { "type": "string" },
+				"field-string-value": { "type": "string" }
+			},
+			"required": ["field-name", "field-string-value"]
+		}, 
+		"x.opc.bool-field": {
+			"type": "object",
+			"properties": {
+				"field-name": { "type": "string" },
+				"field-bool-value": { "type": "boolean" }
+			},
+			"required": ["field-name", "field-bool-value"]
+		}, 
+		"x.opc.array-field": {
+			"type": "object",
+			"properties": {
+				"field-name": { "type": "string" },
+				"field-array-value": { "$ref": "#/definitions/x.opc.array-value" },
+				"num-dimensions": { "type": "integer" },
+				"innermost-type": {
+					"type": "string",
+					"enum": ["number", "string", "boolean", "object"]
+				},
+				"enum-strings": {
+					"type": "array",
+					"items": {	"type": "string" },
+					"minItems": 1
+				} 
+			},
+			"required": ["field-name", "field-array-value", "num-dimensions", "innermost-type"]
+		}, 
+		"x.opc.struct-field": {
+			"type": "object",
+			"properties": {
+				"field-name": { "type": "string" },
+				"field-struct-value": { "$ref": "#/definitions/x.opc.struct-value" }
+			},
+			"required": ["field-name", "field-struct-value"]
+		} 
+	},
+	"type": "object",
+	"allOf": [
+		{"$ref": "oic.core.json#/definitions/oic.core"},
+		{"$ref": "#/definitions/x.opc.variable"}	
+	]
+}
