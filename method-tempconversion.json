@@ -3,7 +3,7 @@
     "OPCInputArguments": [
         {
             "opc-argument-name": "tempValue",
-            "opc-argument-number-value": 3
+            "opc-argument-number-value": 0
         },
         {
             "opc-argument-name": "eunit",
@@ -14,7 +14,11 @@
     "OPCOutputArguments": [
         {
             "opc-argument-name": "result",
-            "opc-argument-number-value": 37.4
+            "opc-argument-number-value": 37.4,
+            "ereoto": true
         }
-    ]
+    ],
+    "executable": false,
+    "timestamp": "12:00:00",
+    "last-request-identifier": "ri"
 }
