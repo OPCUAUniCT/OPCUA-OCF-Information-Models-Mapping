@@ -7,8 +7,35 @@
 		"x.opc.method":{
 			"type": "object",
 			"properties": {
-				"OPCInputArguments": { "$ref": "#/definitions/x.opc.arguments" },
-				"OPCOutputArguments": { "$ref": "#/definitions/x.opc.arguments" },
+				"OPCInputArguments": { 
+					"type": "array",
+					"items": { "$ref": "#/definitions/x.opc.argument" },
+					"innermost-type": {
+						"type": "string",
+						"enum": ["number", "string", "boolean", "object"]
+					},
+					"enum-strings": {
+						"type": "array",
+						"items": {	"type": "string" },
+						"minItems": 1
+					},
+					"description": "A list of OPC UA argument in a JSON format"
+				 },
+				"OPCOutputArguments": { 
+					"type": "array",
+					"items": { "$ref": "#/definitions/x.opc.argument" },
+					"readOnly": true,
+					"innermost-type": {
+						"type": "string",
+						"enum": ["number", "string", "boolean", "object"]
+					},
+					"enum-strings": {
+						"type": "array",
+						"items": {	"type": "string" },
+						"minItems": 1
+					},
+					"description": "A list of OPC UA argument in a JSON format"
+				 },
 				"OPCDescription": {
 					"type": "string",
 					"description": "This property correspond to the OPC UA Description attribute of the OPC UA Node represented"
@@ -83,77 +110,64 @@
 			},
 			"required": ["OPCInputArguments", "OPCOutputArguments", "executable", "timestamp", "last-request-identifier"]
         },
-        "x.opc.arguments": {
-            "type": "array",
-            "items": { 
-                "oneOf": [
-                    {
-                        "type": "object",
-                        "properties": {
-                            "opc-argument-name": { "type": "string" },
-                            "opc-argument-number-value": { "type": "number" },
-                            "enum-strings": {
-                                "type": "array",
-                                "items": {	"type": "string" },
-                                "minItems": 1
-                            } 
-                        },
-                        "required": ["opc-argument-name", "opc-argument-number-value"]
-                    },
-                    {
-                        "type": "object",
-                        "properties": {
-                            "opc-argument-name": { "type": "string" },
-                            "opc-argument-string-value": { "type": "string" } 
-                        },
-                        "required": ["opc-argument-name", "opc-argument-string-value"]
-                    },
-                    {
-                        "type": "object",
-                        "properties": {
-                            "opc-argument-name": { "type": "string" },
-                            "opc-argument-bool-value": { "type": "boolean" } 
-                        },
-                        "required": ["opc-argument-name", "opc-argument-bool-value"]
-                    },
-                    {
-                        "type": "object",
-                        "properties": {
-                            "opc-argument-name": { "type": "string" },
-                            "opc-argument-array-value": { "$ref": "#/definitions/x.opc.array-value" } ,
-                            "num-dimensions": { "type": "integer" },
-                            "innermost-type": {
-                                "type": "string",
-                                "enum": ["number", "string", "boolean", "object"]
-                            },
-                            "enum-strings": {
-                                "type": "array",
-                                "items": {	"type": "string" },
-                                "minItems": 1
-                            } 
-                        },
-                        "required": ["opc-argument-name", "opc-argument-array-value", "num-dimensions", "innermost-type"]
-                    },
-                    {
-                        "type": "object",
-                        "properties": {
-                            "opc-argument-name": { "type": "string" },
-                            "opc-argument-struct-value": { "$ref": "#/definitions/x.opc.struct-value" } 
-                        },
-                        "required": ["opc-argument-name", "opc-argument-struct-value"]
-                    }
-                ]
-			},
-			"innermost-type": {
-				"type": "string",
-				"enum": ["number", "string", "boolean", "object"]
-			},
-			"enum-strings": {
-				"type": "array",
-				"items": {	"type": "string" },
-				"minItems": 1
-			},
-            "description": "A list of OPC UA argument in a JSON format"
+        "x.opc.argument": {
+			"oneOf": [
+				{
+					"type": "object",
+					"properties": {
+						"opc-argument-name": { "type": "string" },
+						"opc-argument-number-value": { "type": "number" },
+						"enum-strings": {
+							"type": "array",
+							"items": {	"type": "string" },
+							"minItems": 1
+						} 
+					},
+					"required": ["opc-argument-name", "opc-argument-number-value"]
+				},
+				{
+					"type": "object",
+					"properties": {
+						"opc-argument-name": { "type": "string" },
+						"opc-argument-string-value": { "type": "string" } 
+					},
+					"required": ["opc-argument-name", "opc-argument-string-value"]
+				},
+				{
+					"type": "object",
+					"properties": {
+						"opc-argument-name": { "type": "string" },
+						"opc-argument-bool-value": { "type": "boolean" } 
+					},
+					"required": ["opc-argument-name", "opc-argument-bool-value"]
+				},
+				{
+					"type": "object",
+					"properties": {
+						"opc-argument-name": { "type": "string" },
+						"opc-argument-array-value": { "$ref": "#/definitions/x.opc.array-value" } ,
+						"num-dimensions": { "type": "integer" },
+						"innermost-type": {
+							"type": "string",
+							"enum": ["number", "string", "boolean", "object"]
+						},
+						"enum-strings": {
+							"type": "array",
+							"items": {	"type": "string" },
+							"minItems": 1
+						} 
+					},
+					"required": ["opc-argument-name", "opc-argument-array-value", "num-dimensions", "innermost-type"]
+				},
+				{
+					"type": "object",
+					"properties": {
+						"opc-argument-name": { "type": "string" },
+						"opc-argument-struct-value": { "$ref": "#/definitions/x.opc.struct-value" } 
+					},
+					"required": ["opc-argument-name", "opc-argument-struct-value"]
+				}
+			]
         },
 		"x.opc.array-value": {
 			"type": "array",
