@@ -108,7 +108,7 @@
 				"timestamp": { "type": "string" },
     			"last-request-identifier": { "type": "string" }
 			},
-			"required": ["OPCInputArguments", "OPCOutputArguments", "executable", "timestamp", "last-request-identifier"]
+			"required": ["executable", "timestamp", "last-request-identifier"]
         },
         "x.opc.argument": {
 			"oneOf": [
