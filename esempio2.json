@@ -5,7 +5,8 @@
     "OPCProperties": [
         {
             "opc-property-name": "EUnit",
-            "opc-property-string-value": "C"
+            "opc-property-value": "C",
+            "value-type": "string"
         }
     ]
 }

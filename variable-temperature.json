@@ -3,39 +3,90 @@
         "fields": [
             {
                 "field-name": "min",
-                "field-number-value": -3
+                "field-value": -3,
+                "value-type": "number"
             },
             {
                 "field-name": "max",
-                "field-number-value": 28
+                "field-value": 28,
+                "value-type": "number"
             },
             {
                 "field-name": "status",
-                "field-number-value": 0,
-                "enum-strings": ["Cold", "Warm", "Hot"]
+                "field-value": 0,
+                "value-type": "number",
+                "enum-values": [
+                    {
+                        "enumeration-index": 0,
+                        "enumeration-value": {
+                            "locale": "en",
+                            "text": "Cold"
+                        }
+                    },
+                    {
+                        "enumeration-index": 1,
+                        "enumeration-value": {
+                            "locale": "en",
+                            "text": "Warm"
+                        }
+                    },
+                    {
+                        "enumeration-index": 2,
+                        "enumeration-value": {
+                            "locale": "en",
+                            "text": "Hot"
+                        }
+                    }
+                ]
             },
             {
                 "field-name": "currentTemp",
-                "field-struct-value": {
+                "field-value": {
                     "fields": [
                         {
                             "field-name": "value",
-                            "field-number-value": 19
+                            "field-value": 19,
+                            "value-type": "number"
                         },
                         {
                             "field-name": "statusCode",
-                            "field-struct-value": {
+                            "field-value": {
                                 "fields": [
                                     {
                                         "field-name": "Severity",
-                                        "field-number-value": 0,
-                                        "enum-strings": ["Good", "Uncertain", "Bad Failure"]
+                                        "field-value": 0,
+                                        "value-type": "number",
+                                        "enum-values": [
+                                            {
+                                                "enumeration-index": 0,
+                                                "enumeration-value": {
+                                                    "locale": "en",
+                                                    "text": "Good"
+                                                }
+                                            },
+                                            {
+                                                "enumeration-index": 1,
+                                                "enumeration-value": {
+                                                    "locale": "en",
+                                                    "text": "Uncertain"
+                                                }
+                                            },
+                                            {
+                                                "enumeration-index": 2,
+                                                "enumeration-value": {
+                                                    "locale": "en",
+                                                    "text": "Bad"
+                                                }
+                                            }
+                                        ]
                                     }
                                 ]
-                            }
+                            },
+                            "value-type": "object"
                         }
                     ]
-                }
+                },
+                "value-type": "object"
             }
         ]
     },
@@ -43,34 +94,62 @@
     "OPCProperties": [
         {
             "opc-property-name": "EUnit",
-            "opc-property-string-value": "C"
+            "opc-property-value": "C",
+            "value-type": "string"
         },
         {
             "opc-property-name": "Location",
-            "opc-property-struct-value": {
+            "opc-property-value": {
                 "fields": [
                     {
                         "field-name": "Floor",
-                        "field-number-value": 1
+                        "field-value": 1,
+                        "value-type": "number"
                     },
                     {
                         "field-name": "Room",
-                        "field-struct-value": {
+                        "field-value": {
                             "fields": [
                                 {
                                     "field-name": "roomNumber",
-                                    "field-number-value": 2
+                                    "field-value": 2,
+                                    "value-type": "number"
                                 },
                                 {
                                     "field-name": "roomName",
-                                    "field-number-value": 1,
-                                    "enum-strings": ["Restroom", "Break Area", "Server room"]
+                                    "field-value": 1,
+                                    "value-type": "number",
+                                    "enum-values": [
+                                        {
+                                            "enumeration-index": 0,
+                                            "enumeration-value": {
+                                                "locale": "en",
+                                                "text": "Rest Room"
+                                            }
+                                        },
+                                        {
+                                            "enumeration-index": 1,
+                                            "enumeration-value": {
+                                                "locale": "en",
+                                                "text": "Break Area"
+                                            }
+                                        },
+                                        {
+                                            "enumeration-index": 2,
+                                            "enumeration-value": {
+                                                "locale": "en",
+                                                "text": "Server Room"
+                                            }
+                                        }
+                                    ]
                                 }
                             ]
-                        }
+                        },
+                        "value-type": "object"
                     }
                 ]
-            }
+            },
+            "value-type": "object"
         }
     ]
 }
