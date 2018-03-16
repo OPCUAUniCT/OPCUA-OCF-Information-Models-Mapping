@@ -55,7 +55,8 @@
 										"minItems": 1
 									} 
 								},
-								"required": ["opc-property-name", "opc-property-number-value"]
+								"required": ["opc-property-name", "opc-property-number-value"],
+								"additionalProperties": false
 							},
 							{
 								"type": "object",
@@ -63,7 +64,8 @@
 									"opc-property-name": { "type": "string" },
 									"opc-property-string-value": { "type": "string" } 
 								},
-								"required": ["opc-property-name", "opc-property-string-value"]
+								"required": ["opc-property-name", "opc-property-string-value"],
+								"additionalProperties": false
 							},
 							{
 								"type": "object",
@@ -71,7 +73,8 @@
 									"opc-property-name": { "type": "string" },
 									"opc-property-bool-value": { "type": "boolean" } 
 								},
-								"required": ["opc-property-name", "opc-property-bool-value"]
+								"required": ["opc-property-name", "opc-property-bool-value"],
+								"additionalProperties": false
 							},
 							{
 								"type": "object",
@@ -89,7 +92,8 @@
 										"minItems": 1
 									} 
 								},
-								"required": ["opc-property-name", "opc-property-array-value", "num-dimensions", "innermost-type"]
+								"required": ["opc-property-name", "opc-property-array-value", "num-dimensions", "innermost-type"],
+								"additionalProperties": false
 							},
 							{
 								"type": "object",
@@ -97,7 +101,8 @@
 									"opc-property-name": { "type": "string" },
 									"opc-property-struct-value": { "$ref": "#/definitions/x.opc.struct-value" } 
 								},
-								"required": ["opc-property-name", "opc-property-struct-value"]
+								"required": ["opc-property-name", "opc-property-struct-value"],
+								"additionalProperties": false
 							}
 						]
 					},
@@ -123,7 +128,8 @@
 							"minItems": 1
 						} 
 					},
-					"required": ["opc-argument-name", "opc-argument-number-value"]
+					"required": ["opc-argument-name", "opc-argument-number-value"],
+					"additionalProperties": false
 				},
 				{
 					"type": "object",
@@ -131,7 +137,8 @@
 						"opc-argument-name": { "type": "string" },
 						"opc-argument-string-value": { "type": "string" } 
 					},
-					"required": ["opc-argument-name", "opc-argument-string-value"]
+					"required": ["opc-argument-name", "opc-argument-string-value"],
+					"additionalProperties": false
 				},
 				{
 					"type": "object",
@@ -139,7 +146,8 @@
 						"opc-argument-name": { "type": "string" },
 						"opc-argument-bool-value": { "type": "boolean" } 
 					},
-					"required": ["opc-argument-name", "opc-argument-bool-value"]
+					"required": ["opc-argument-name", "opc-argument-bool-value"],
+					"additionalProperties": false
 				},
 				{
 					"type": "object",
@@ -157,7 +165,8 @@
 							"minItems": 1
 						} 
 					},
-					"required": ["opc-argument-name", "opc-argument-array-value", "num-dimensions", "innermost-type"]
+					"required": ["opc-argument-name", "opc-argument-array-value", "num-dimensions", "innermost-type"],
+					"additionalProperties": false
 				},
 				{
 					"type": "object",
@@ -165,7 +174,8 @@
 						"opc-argument-name": { "type": "string" },
 						"opc-argument-struct-value": { "$ref": "#/definitions/x.opc.struct-value" } 
 					},
-					"required": ["opc-argument-name", "opc-argument-struct-value"]
+					"required": ["opc-argument-name", "opc-argument-struct-value"],
+					"additionalProperties": false
 				}
 			]
         },
@@ -187,7 +197,7 @@
 				"fields": {
 					"type": "array",
 					"items": {
-						"anyOf": [
+						"oneOf": [
 							{ "$ref": "#/definitions/x.opc.number-field" },
 							{ "$ref": "#/definitions/x.opc.string-field" },
 							{ "$ref": "#/definitions/x.opc.bool-field" },
@@ -211,7 +221,8 @@
 					"minItems": 1
 				} 
 			},
-			"required": ["field-name", "field-number-value"]
+			"required": ["field-name", "field-number-value"],
+			"additionalProperties": false
 		},
 		"x.opc.string-field": {
 			"type": "object",
@@ -219,7 +230,8 @@
 				"field-name": { "type": "string" },
 				"field-string-value": { "type": "string" }
 			},
-			"required": ["field-name", "field-string-value"]
+			"required": ["field-name", "field-string-value"],
+			"additionalProperties": false
 		}, 
 		"x.opc.bool-field": {
 			"type": "object",
@@ -227,7 +239,8 @@
 				"field-name": { "type": "string" },
 				"field-bool-value": { "type": "boolean" }
 			},
-			"required": ["field-name", "field-bool-value"]
+			"required": ["field-name", "field-bool-value"],
+			"additionalProperties": false
 		}, 
 		"x.opc.array-field": {
 			"type": "object",
@@ -245,7 +258,8 @@
 					"minItems": 1
 				} 
 			},
-			"required": ["field-name", "field-array-value", "num-dimensions", "innermost-type"]
+			"required": ["field-name", "field-array-value", "num-dimensions", "innermost-type"],
+			"additionalProperties": false
 		}, 
 		"x.opc.struct-field": {
 			"type": "object",
@@ -253,7 +267,8 @@
 				"field-name": { "type": "string" },
 				"field-struct-value": { "$ref": "#/definitions/x.opc.struct-value" }
 			},
-			"required": ["field-name", "field-struct-value"]
+			"required": ["field-name", "field-struct-value"],
+			"additionalProperties": false
 		} 
 	},
 	"type": "object",
