@@ -13,6 +13,29 @@
                 "field-name": "status",
                 "field-number-value": 0,
                 "enum-strings": ["Cold", "Warm", "Hot"]
+            },
+            {
+                "field-name": "currentTemp",
+                "field-struct-value": {
+                    "fields": [
+                        {
+                            "field-name": "value",
+                            "field-number-value": 19
+                        },
+                        {
+                            "field-name": "statusCode",
+                            "field-struct-value": {
+                                "fields": [
+                                    {
+                                        "field-name": "Severity",
+                                        "field-number-value": 0,
+                                        "enum-strings": ["Good", "Uncertain", "Bad Failure"]
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
             }
         ]
     },
@@ -21,6 +44,33 @@
         {
             "opc-property-name": "EUnit",
             "opc-property-string-value": "C"
+        },
+        {
+            "opc-property-name": "Location",
+            "opc-property-struct-value": {
+                "fields": [
+                    {
+                        "field-name": "Floor",
+                        "field-number-value": 1
+                    },
+                    {
+                        "field-name": "Room",
+                        "field-struct-value": {
+                            "fields": [
+                                {
+                                    "field-name": "roomNumber",
+                                    "field-number-value": 2
+                                },
+                                {
+                                    "field-name": "roomName",
+                                    "field-number-value": 1,
+                                    "enum-strings": ["Restroom", "Break Area", "Server room"]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
         }
     ]
 }

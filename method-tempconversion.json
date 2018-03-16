@@ -1,0 +1,24 @@
+{
+    "n": "TempConversion",
+    "OPCInputArguments": [
+        {
+            "opc-argument-name": "tempValue",
+            "opc-argument-number-value": 0
+        },
+        {
+            "opc-argument-name": "eunit",
+            "opc-argument-number-value": 0,
+            "enum-strings": [ "Celsius", "Farenheit" ]
+        }
+    ],
+    "OPCOutputArguments": [
+        {
+            "opc-argument-name": "result",
+            "opc-argument-number-value": 37.4,
+            "ereoto": true
+        }
+    ],
+    "executable": false,
+    "timestamp": "12:00:00",
+    "last-request-identifier": "ri"
+}
