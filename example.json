@@ -1,70 +1,91 @@
 {
     "OPCNodeType": "object",
-    "OPCproperties": [
+    "OPCProperties": [
         {
             "opc-property-name": "BAConfigurations",
-            "opc-property-struct-value": {
+            "opc-property-value": {
                 "fields": [
                     {
                         "field-name": "AirConditionerControllers",
-                        "field-array-value": [
+                        "field-value": [
                             {
                                 "fields": [
                                     {
                                         "field-name": "DeviceAddress",
-                                        "field-number-value": 0
+                                        "field-value": 0,
+                                        "value-type": "number"
                                     },
                                     {
                                         "field-name": "HumiditySetpoint",
-                                        "field-number-value": 60
+                                        "field-value": 60,
+                                        "value-type": "number"
                                     },
                                     {
                                         "field-name": "Name",
-                                        "field-string-value": "AirConditioner_1"
+                                        "field-value": "AirConditioner_1",
+                                        "value-type": "string"
                                     },
                                     {
                                         "field-name": "TemperatureSetpoint",
-                                        "field-number-value": 72
+                                        "field-value": 72,
+                                        "value-type": "number"
                                     }
                                 ]
                             }   
                         ],
+                        "value-type": "array",
                         "num-dimensions": 1,
                         "innermost-type": "object"
                     },
                     {
                         "field-name": "FurnaceControllers",
-                        "field-array-value": [
+                        "field-value": [
                             {
                                 "fields": [
                                     {
                                         "field-name": "DeviceAddress",
-                                        "field-number-value": 0
+                                        "field-value": 0,
+                                        "value-type": "number",
+                                        "enum-values": [
+                                            {
+                                                "enumeration-index": 0,
+                                                "enumeration-value": {
+                                                    "locale": "it",
+                                                    "text": "ziro"
+                                                }
+                                            }
+                                        ]
                                     },
                                     {
                                         "field-name": "Name",
-                                        "field-string-value": "AirConditioner_1"
+                                        "field-value": "AirConditioner_1",
+                                        "value-type": "string"
                                     },
                                     {
                                         "field-name": "TemperatureSetpoint",
-                                        "field-number-value": 72
+                                        "field-value": 72,
+                                        "value-type": "number"
                                     }
                                 ]
                             }
                         ],
+                        "value-type": "array",
                         "num-dimensions": 1,
                         "innermost-type": "object"
                     },
                     {
                         "field-name": "NoOfAirConditionerControllers",
-                        "field-number-value": 10
+                        "field-value": 10,
+                        "value-type": "number"
                     },
                     {
                         "field-name": "NoOfFurnaceControllers",
-                        "field-number-value": 10
+                        "field-value": 10,
+                        "value-type": "number"
                     }
                 ]
-            } 
+            },
+            "value-type": "object" 
         }
     ]
 }

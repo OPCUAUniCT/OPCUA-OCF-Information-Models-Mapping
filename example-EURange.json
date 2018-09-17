@@ -1,20 +1,23 @@
 {
     "OPCNodeType": "object",
-    "OPCproperties": [
+    "OPCProperties": [
         {
             "opc-property-name": "EURange",
-            "opc-property-struct-value": {
+            "opc-property-value": {
                 "fields": [
                     {
                         "field-name": "Low",
-                        "field-number-value": 0
+                        "field-value": 0,
+                        "value-type": "number"
                     },
                     {
                         "field-name": "High",
-                        "field-number-value": 100
+                        "field-value": 100,
+                        "value-type": "number"
                     }
                 ]
-            }
+            },
+            "value-type": "object"
         }
     ]
 }
