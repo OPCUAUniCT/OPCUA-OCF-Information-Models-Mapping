@@ -88,9 +88,9 @@
 					"minItems": 1,
 					"description": "A list of OPC UA Property in a JSON format"
 				},
-				"executable": { "type": "boolean" }
+				"Executable": { "type": "boolean" }
 			},
-			"required": ["executable", "timestamp", "last-request-identifier"]
+			"required": ["Executable"]
         },
         "x.opc.argument": {
 			"type": "object",

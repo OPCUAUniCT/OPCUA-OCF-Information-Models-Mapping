@@ -3,7 +3,7 @@
     "OPCInputArguments": [
         {
             "opc-argument-name": "tempValue",
-            "opc-argument-value": 0,
+            "opc-argument-value": 3,
             "value-type": "number"
         },
         {
@@ -33,9 +33,28 @@
             "opc-argument-name": "result",
             "opc-argument-value": 37.4,
             "value-type": "number"
+        },
+        {
+            "opc-argument-name": "ret_eunit",
+            "opc-argument-value": 1,
+            "value-type": "number",
+            "enum-values": [
+                {
+                    "enumeration-index": 0,
+                    "enumeration-value": {
+                        "locale": "en",
+                        "text": "Celsius"
+                    }
+                },
+                {
+                    "enumeration-index": 1,
+                    "enumeration-value": {
+                        "locale": "en",
+                        "text": "Farenheit"
+                    }
+                }
+            ]
         }
     ],
-    "executable": false,
-    "timestamp": "12:00:00",
-    "last-request-identifier": "ri"
+    "Executable": false
 }
