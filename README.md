@@ -1,7 +1,13 @@
 # ResourceType for an OPC UA - OCF object mapping
-This is a proposal for an OCF *ResourceType* in order to produce a mapping from an OPC UA *Nodes* in the **Address Space** to OCF *Resources*. This proposal provide interoperability between these two environments trying to maintain semantic, data structure and data encoding.
+This repository contains the OCF *ResourceTypes* defined in a proposal of mapping between the OPC UA (IEC 62541) Information Model and the OCF Resource Model.
+The proposal, described [here](https://ieeexplore.ieee.org/document/8387649/), allows to map an OPC UA *Node* as an OCF *Resource*.
 
-Only one schema for an OCF ResourceType is provided in this project for a generic OPC UA *Object*. The concepts shown can be extended and/or reused in order to crete new ResourceTypes.
+In order to enable the mapping of each kind of OPC UA Node, three OCF Resource Type has been defined:
+
+- **"x.opc.object"**: used to map OPC UA Object Nodes
+- **"x.opc.datavariable**": used to map OPC UA DataVariable Nodes
+- **"x.opc.method"**: used to map OPC UA Method Nodes
+
 
 ---
 
@@ -10,7 +16,7 @@ This project has been created using **Visual Studio Code** and its native JSON S
 
 1. Clone this project using the following:
 
-    ` git clone https://gitlab.com/msalafia/opc-json-schema.git `
+    ` git clone https://github.com/OPCUAUniCT/OPCUA-Resource-Types-for-OCF.git `
 
 2. Open the cloned folder using VS Code. This project contains an hidden folder **.vscode** which contains a VS Code workspace setting.
 
