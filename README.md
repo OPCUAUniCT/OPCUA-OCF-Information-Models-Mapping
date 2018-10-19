@@ -120,7 +120,7 @@ In the case of Structured DataType, an ad-hoc JSON object has been defined to re
 
 As for example, the following JSON represent an OPC UA Object with a structured Property named EURange.
 
-![picture](\example-eu-range.png)
+![picture](example-eu-range.png)
 
 ---
 
