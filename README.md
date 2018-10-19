@@ -13,7 +13,7 @@ The figure in the following gives a graphical representation of the proposed sol
 
 <p align="center">
 <img src="imagegithub.png" width="500">
-<\p>
+</p>
     
 As shown, in the OCF ecosystem it is assumed the presence of at least an OCF Device of *x.opc.device* type. On the right side, the OPC UA ecosystem is shown, made up by OPC UA Servers and one or more OPC UA Clients and Subscribers. The arrow from the OPC UA Server to the OCF Device of “x.opc.device” type represents the information flow needed to populate this last device with the information maintained by the OPC UA Server. Information flow is realised on the basis of the mapping defined in the research carried out by the research group at University of Catania (DIEEI) and presented in the remainder of this paper. The mapping specifies how each element of the OPC UA AddressSpace is mapped in the correspondent element of the OCF Resource Model inside the OCF Device of *x.opc.device* type.
 It is important to point out that the proposal involves only the mapping rules from OPC UA to OCF information models. Details about how each information from OPC UA Server is actually transferred to the OCF Device of “x.opc.device” type (e.g., communication protocols and services used to realise the mapping) are outside the scope of the research carried on.
@@ -135,7 +135,7 @@ As for example, the following JSON represent an OPC UA Object with a structured 
 
 <p align="center">
 <img src="example-eu-range.png" width="500">
-<\p>
+</p>
 
 ---
 
