@@ -3,21 +3,34 @@
 ## Introduction
 Since few years, Industry has been featured by a revolution, the fourth one, which has been coined with different names in different countries; the most known is Industry 4.0. 
 One of the main goal of the Industry 4.0 is the interoperability of industrial applications and the use of enabling ICT technologies, mainly those based on the IoT. This goal may be reached through integration of different communication systems used in the current Industry 4.0 and IoT scenarios. For this reason, during these last years, several solutions dealing with the integration of OPC UA and IoT ecosystems appeared in the literature, due to important role played by OPC UA inside the current Industry 4.0 reference models (see for example the [RAMI4.0](https://www.zvei.org/fileadmin/user_upload/Themen/Industrie_4.0/Das_Referenzarchitekturmodell_RAMI_4.0_und_die_Industrie_4.0-Komponente/pdf/5305_Publikation_GMA_Status_Report_ZVEI_Reference_Architecture_Model.pdf) and [IIRA](https://www.iiconsortium.org/IIC_PUB_G1_V1.80_2017-01-31.pdf) reference architectures which both indicate OPC UA as one of the main connectivity standard on Industry 4.0).
+
 The research group at University of Catania, DIEEI, has recently proposed a novel solution to make interoperable OPC UA and IoT ecosystems; some preliminary results have been presented [here](https://ieeexplore.ieee.org/document/8387649/) and [here](https://ieeexplore.ieee.org/document/8352412). Among the current IoT ecosystems, OCF has been chosen for the integration with OPC UA, as it seems a promising solution to standardise the exchange of information into IoT. It is important to point out that no other solutions of interoperability between OPC UA and OCF are present in the current literature. 
 
 ## Research goal
-Interoperability between OPC UA and OCF has been realised in both direction. Considering the interoperability from OPC UA to OCF, the proposal is based on the idea to make available information maintained by an OPC UA Server to whatever IoT devices compliant with OCF specifications. This is realised through the ad-hoc definition of a new OCF Device Type, called in the paper “x.opc.device”. According to the solution here presented, each information maintained by an OPC UA Server may be mapped into an OCF Device of “x.opc.device” type; acting as a server, this device may expose this information to whatever client devices in the OCF ecosystem. 
-Figure 1 gives a graphical representation of the proposed solution. As it can be seen on the left of the figure, the OCF ecosystem is present with several OCF Devices exchanging information though OCF communication protocol. As shown, in the OCF ecosystem it is assumed the presence of at least an OCF Device of “x.opc.device” type. On the right side, the OPC UA ecosystem is shown, made up by OPC UA Servers and one or more OPC UA Clients and Subscribers. The arrow from the OPC UA Server to the OCF Device of “x.opc.device” type represents the information flow needed to populate this last device with the information maintained by the OPC UA Server. Information flow is realised on the basis of the mapping defined in the research carried out by the research group at University of Catania (DIEEI) and presented in the remainder of this paper. The mapping specifies how each element of the OPC UA AddressSpace is mapped in the correspondent element of the OCF Resource Model inside the OCF Device of “x.opc.device” type.
+Interoperability between OPC UA and OCF has been realised in both direction. Considering the interoperability from OPC UA to OCF, the proposal is based on the idea to make available information maintained by an OPC UA Server to whatever IoT devices compliant with OCF specifications. This is realised through the ad-hoc definition of a new OCF Device Type, called in the paper *x.opc.device*. According to the solution here presented, each information maintained by an OPC UA Server may be mapped into an OCF Device of *x.opc.device* type; acting as a server, this device may expose this information to whatever client devices in the OCF ecosystem. 
+
+The figure in the following gives a graphical representation of the proposed solution. As it can be seen on the left of the figure, the OCF ecosystem is present with several OCF Devices exchanging information though OCF communication protocol. 
+
+<p align="center">
+<img src="imagegithub.png" width="500">
+<\p>
+    
+As shown, in the OCF ecosystem it is assumed the presence of at least an OCF Device of *x.opc.device* type. On the right side, the OPC UA ecosystem is shown, made up by OPC UA Servers and one or more OPC UA Clients and Subscribers. The arrow from the OPC UA Server to the OCF Device of “x.opc.device” type represents the information flow needed to populate this last device with the information maintained by the OPC UA Server. Information flow is realised on the basis of the mapping defined in the research carried out by the research group at University of Catania (DIEEI) and presented in the remainder of this paper. The mapping specifies how each element of the OPC UA AddressSpace is mapped in the correspondent element of the OCF Resource Model inside the OCF Device of *x.opc.device* type.
 It is important to point out that the proposal involves only the mapping rules from OPC UA to OCF information models. Details about how each information from OPC UA Server is actually transferred to the OCF Device of “x.opc.device” type (e.g., communication protocols and services used to realise the mapping) are outside the scope of the research carried on.
 
-![picture](imagegithub.png)
-
 Considering the interoperability from OCF to OPC UA, the solution proposed aims to realise a mapping from OCF Resource Model to OPC UA AddressSpace. The mapping specifies how each element of the OCF Resource Model is mapped in the correspondent element of the OPC UA AddressSpace of an OPC UA Server. Through this mapping, information maintained by a generic OCF Device may be published by an OPC UA Server making this information available to whatever OPC UA Client connected with the OPC UA Server. According to the recent OPC UA PubSub specification, the OPC UA Server may act as a Publisher allowing each OPC UA Subscriber to receive information coming from OCF ecosystem, as shown by Figure 1. The arrow from the OCF Device to the OPC UA Server represents the information flow needed to populate the AddressSpace of the OPC UA Server with the information maintained by the OCF Device. Information flow is realised on the basis of the mapping here defined. Again, details about how each information from an OCF Device to the OPC UA Server is actually transferred are outside the scope of the research carried on.
+
 At the moment, this repository contains documents about the mapping from OPC UA to OCF; in the next future it will be completed adding documents about mapping in the other direction.
+
+
 
 # Mapping from OPC UA to OCF
 
 Mapping from OPC UA may involve the entire OPC UA AddressSpace of a specific OPC UA Server or its subset. As said before, the proposal is based on the use of an OCF Device belonging to the ad-hoc defined **“x.opc.device”** Device Type. Such Device is made up by several OCF Resources which may be related each other by OCF Links. OCF Resources are aimed to model OCP UA Nodes and belongs to one of three ad-hoc defined Resource Types: **“x.opc.object”**, **“x.opc.datavariable”** and **“x.opc.method”**, described in the following.
+
+The repository contains a folder named *schema* where the JSON Schema relevant to the ad-hoc Resource Types defined have been stored. Furthermore, the basic OCF Resource Type needed are also included in the folder.
+
+Finally, some JSON examples are provided in order to better understand the JSON Schema provided.
 
 
 ## "x.opc.device" Device Type
@@ -120,7 +133,9 @@ In the case of Structured DataType, an ad-hoc JSON object has been defined to re
 
 As for example, the following JSON represent an OPC UA Object with a structured Property named EURange.
 
-![picture](example-eu-range.png)
+<p align="center">
+<img src="example-eu-range.png" width="500">
+<\p>
 
 ---
 
