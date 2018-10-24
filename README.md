@@ -138,7 +138,7 @@ As for example, the following JSON represent an OPC UA Object with a structured 
 
 <p align="center">
 <img src="example-eu-range.png" width="500">
-</p>
+</p> 
 
 ---
 
