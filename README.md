@@ -28,7 +28,7 @@ Considering the interoperability from OCF to OPC UA, the proposal is based on th
 <img src="OCFOPCInformModel.png" width="500">
 </p>
 
-This novel information model offers several novel OPC UA ObjectTypes defined to map elements of OCF Resource Model (e.g., Device Type, Resource Type, Resource). Most of the novel ObjectTypes inherit from the types of the OPC UA Device Model. The novel ObjectTypes here defined are: *OCFResourceType*, *OCFResourceInstanceType* and *OCFDeviceType*.
+This novel information model offers several novel OPC UA ObjectTypes defined to map elements of OCF Resource Model (e.g., Device Type, Resource Type, Resource). Most of the novel ObjectTypes inherit from the types of the OPC UA Device Model. The novel ObjectTypes here defined are: **OCFResourceType**, **OCFResourceInstanceType** and **OCFDeviceType**.
 
 # Mapping from OPC UA to OCF
 
@@ -53,7 +53,7 @@ In addition to the OCF common properties, a Resource belonging to the “x.opc.o
 
 | Property Name | OCF data type | Mandatory | Description
 | ------------- | ------------- | ------------- | ------------- |
-|  Common properties  | | | Properties defined by "oic.core" Resource Type|
+|  <Common properties\>  | \ | \ | Properties defined by "oic.core" Resource Type|
 | OPCNodeType  | string  | Yes | It specifies if the Resource represents an OPC UA Node of ObjectType or FolderType type|
 | OPCDescription  | string  | No | It maps the Description attribute of the OPC UA Object Node represented|
 | OPCProperties  | array of objects  | No | An array of JSON objects representing the OPC UA Property Nodes of the OPC UA Object Node represented|
@@ -63,7 +63,7 @@ In addition to the OCF common properties, a Resource belonging to the “x.opc.o
 
 | Property Name | OCF data type | Mandatory | Description
 | ------------- | ------------- | ------------- | ------------- |
-|  Common properties  | | | Properties defined by "oic.core" Resource Type|
+|  <Common properties\>  | \ | \ | Properties defined by "oic.core" Resource Type|
 | opc-property-name  | string  | Yes | It contains the BrowseName attribute of the OPC UA Property Node|
 | opc-property-value  | \<type>  | Yes | \<type> represents the OCF data type mapping the OPC UA DataType of Value attribute of the OPC UA Property Node. The property contains the representation of the Value attribute of OPC UA Property Node according to the \<type>. Only in the case of OPC UA Property with attribute Value of array type, the \<type> is the OCF data type array. In this case, the OCF data type of each element of the array is given by the *innermost-type* property and this property contains an array.|
 | value-type  | string  | Yes | It specifies the OCF data type used for the representation of the Value attribute of OPC UA Property Node. In case of attribute Value of array type, this property specifies OCF array data type.|
@@ -83,7 +83,7 @@ OPC UA DataVariable Nodes are mapped as instances of the “x.opc.datavariable�
 
 | Property Name | OCF data type | Mandatory | Description
 | ------------- | ------------- | ------------- | ------------- |
-|  Common properties  | | | Properties defined by "oic.core" Resource Type|
+|  <Common properties\>  | \ | \ | Properties defined by "oic.core" Resource Type|
 | OPCValue  | \<type>  | Yes | \<type> represents the OCF data type mapping the OPC UA DataType of Value attribute of the OPC UA DataVariable Node. The property contains the representation of the Value attribute of OPC UA DataVariable Node according to the \<type>. Only in the case of OPC UA Property with attribute Value of array type, the \<type> is the OCF data type array. In this case, the OCF data type of each element of the array is given by the *innermost-type* property and this property contains an array.|
 | value-type  | string  | Yes | It specifies the OCF data type used for the representation of the Value attribute of OPC UA DataVariable Node. In case of attribute Value of array type, this property specifies OCF array data type.|
 | enum-values  | array of objects  | No | Array of JSON objects each containing the enumeration values. It is present only if the Value attribute of the mapped OPC UA DataVariable Node is of Enumeration DataType; in this case \<type> is number and *OPCValue* represents the integer representation of the enumeration.|
@@ -99,7 +99,7 @@ OPC UA Method Nodes are mapped as instances of the “x.opc.method” OCF Resour
 
 | Property Name | OCF data type | Mandatory | Description
 | ------------- | ------------- | ------------- | ------------- |
-|  Common properties  | | | Properties defined by "oic.core" Resource Type|
+|  <Common properties\>  | / | / | Properties defined by "oic.core" Resource Type|
 | OPCInputArg | array of objects | No | An array of JSON object representing the input arguments of the Method (i.e. OPCInputArg OPC Property Node). |
 | OPCOutputArg | array of objects | No | An array of JSON object representing the output arguments of the Method (i.e. OPCOutputArg OPC Property Node). |
 | Executable | boolean | Yes | It is used to map the Executable and UserExecutable attributes of the OPC UA Method Node |
@@ -174,7 +174,7 @@ Mapping from OCF to OPC UA specifies how each element of the OCF Resource Model 
 As said before, the proposal is based on the definition of an OPC UA Information Model called *OCF OPC UA Information Model*. The following figure gives a graphical representation of the novel information model.
 
 <p align="center">
-<img src="ocfinformationmodel.png" width="500">
+<img src="ocfinformationmodel.png">
 </p>
 
 The novel ObjectTypes defined are: **OCFResourceType**, **OCFResourceInstanceType** and **OCFDeviceType**. Before deepening the description of these ObjectTypes, it is important to point out the main assumptions assumed.
